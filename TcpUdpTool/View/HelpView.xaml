@@ -1,0 +1,297 @@
+﻿<UserControl
+    x:Class="TcpUdpTool.View.HelpView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:TcpUdpTool.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="500"
+    d:DesignWidth="500"
+    mc:Ignorable="d">
+    <Grid>
+        <FlowDocumentScrollViewer>
+            <FlowDocument
+                FontFamily="Segoe UI"
+                FontSize="13"
+                PagePadding="16"
+                TextAlignment="Left">
+                <Paragraph Margin="0">
+                    <Floater Width="100">
+                        <BlockUIContainer>
+                            <Image Source="pack://application:,,,/Resources/icon.ico" />
+                        </BlockUIContainer>
+                    </Floater>
+                </Paragraph>
+                <Paragraph Margin="0">
+                    <Run FontSize="26" FontWeight="Bold">TcpUdpTool</Run>
+                </Paragraph>
+                <Paragraph Margin="0,16,0,0">
+                    <Run FontWeight="Bold">版本：</Run>
+                    2.0<LineBreak />
+                    <Run FontWeight="Bold">作者：</Run>
+                    Daniel Nilsson<LineBreak />
+                    <Run FontWeight="Bold">重构：</Run>
+                    kai</Paragraph>
+
+                <Section>
+                    <Paragraph
+                        Margin="0,16,0,8"
+                        FontSize="17"
+                        FontWeight="Bold">
+                        简介
+                    </Paragraph>
+                    <Paragraph Margin="0">
+                        TcpUdpTool 用于快速测试与调试网络通信，适合在开发阶段验证 TCP/UDP 协议交互与数据内容。
+                    </Paragraph>
+                </Section>
+
+                <Section>
+                    <Paragraph
+                        Margin="0,16,0,8"
+                        FontSize="15"
+                        FontWeight="Bold">
+                        TCP 客户端
+                    </Paragraph>
+                    <Paragraph Margin="0">
+                        连接 TCP 服务器并进行双向通信。接收数据显示为网络层上送的分块内容，
+                        由于 TCP 为流式协议，分块可能与应用层消息边界不一致。
+                    </Paragraph>
+                    <Paragraph Margin="0,8,0,0">
+                        <Run FontWeight="Bold">注意：</Run>
+                        <Run FontFamily="Consolas">IP Address</Run>
+                        可填写 IP 地址或域名（自动解析为 IP）。
+                    </Paragraph>
+                    <Paragraph Margin="0,8,0,0">
+                        <Run FontWeight="Bold">自动发送：</Run>
+                        勾选后按间隔（毫秒）循环发送当前消息。仅在已连接且消息内容非空时生效；
+                        断开连接后会自动取消勾选。
+                    </Paragraph>
+                </Section>
+
+                <Section>
+                    <Paragraph
+                        Margin="0,16,0,8"
+                        FontSize="15"
+                        FontWeight="Bold">
+                        TCP 服务端
+                    </Paragraph>
+                    <Paragraph Margin="0">
+                        启动 TCP 服务并等待客户端连接。一次只允许一个客户端连接，
+                        连接后可进行双向通信。
+                    </Paragraph>
+                    <Paragraph Margin="0,8,0,0">
+                        <Run FontWeight="Bold">注意：</Run>
+                        <Run FontFamily="Consolas">Port</Run>
+                        设为 0 时会自动分配动态端口。
+                    </Paragraph>
+                </Section>
+
+                <Section>
+                    <Paragraph
+                        Margin="0,16,0,8"
+                        FontSize="15"
+                        FontWeight="Bold">
+                        UDP
+                    </Paragraph>
+                    <Paragraph Margin="0">
+                        发送与接收 UDP 数据包。
+                    </Paragraph>
+                    <Paragraph Margin="0,8,0,0">
+                        <Run FontWeight="Bold">注意：</Run>
+                        在目标 <Run FontFamily="Consolas">IP Address</Run>
+                        中填写广播地址即可发送广播包。
+                    </Paragraph>
+                </Section>
+
+                <Section>
+                    <Paragraph
+                        Margin="0,16,0,8"
+                        FontSize="15"
+                        FontWeight="Bold">
+                        UDP ASM（任意源组播）
+                    </Paragraph>
+                    <Paragraph Margin="0">
+                        参与任意源组播通信。默认仅在系统默认网卡接收，可在网卡列表选择监听接口，
+                        选择 <Run FontFamily="Consolas">All</Run> 可同时监听所有接口。
+                        发送组播包时同理。
+                    </Paragraph>
+                    <Paragraph Margin="0,8,0,0">
+                        <Run FontWeight="Bold">注意：</Run>
+                        若同时在多网卡监听和发送，可能收到重复数据包。
+                    </Paragraph>
+                </Section>
+
+                <Section>
+                    <Paragraph
+                        Margin="0,16,0,8"
+                        FontSize="15"
+                        FontWeight="Bold">
+                        UDP SSM（特定源组播）
+                    </Paragraph>
+                    <Paragraph Margin="0">
+                        接收指定源地址的组播数据。默认仅在系统默认网卡接收，可在网卡列表选择监听接口，
+                        选择 <Run FontFamily="Consolas">All</Run> 可同时监听所有接口。
+                        特定源组播会过滤数据，仅接收指定源 IP 的数据。
+                    </Paragraph>
+                </Section>
+
+                <Section>
+                    <Paragraph
+                        Margin="0,16,0,8"
+                        FontSize="17"
+                        FontWeight="Bold">
+                        转义序列
+                    </Paragraph>
+                    <Paragraph Margin="0">
+                        发送文本消息时可使用转义序列，以发送特殊字符或在文本中混入二进制数据。
+                    </Paragraph>
+                    <Paragraph
+                        Margin="0,8,0,0"
+                        FontSize="15"
+                        FontWeight="Bold">
+                        常用
+                    </Paragraph>
+                    <Table Margin="0,8,0,0" CellSpacing="5">
+                        <Table.Columns>
+                            <TableColumn Width="40" />
+                            <TableColumn Width="Auto" />
+                        </Table.Columns>
+                        <TableRowGroup>
+                            <TableRow>
+                                <TableCell>
+                                    <Paragraph FontWeight="Bold">\0</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>空字符（NULL）</Paragraph>
+                                </TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell>
+                                    <Paragraph FontWeight="Bold">\a</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>响铃（Bell）</Paragraph>
+                                </TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell>
+                                    <Paragraph FontWeight="Bold">\b</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>退格（Backspace）</Paragraph>
+                                </TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell>
+                                    <Paragraph FontWeight="Bold">\f</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>换页（Formfeed）</Paragraph>
+                                </TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell>
+                                    <Paragraph FontWeight="Bold">\n</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>换行（New line）</Paragraph>
+                                </TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell>
+                                    <Paragraph FontWeight="Bold">\r</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>回车（Carriage return）</Paragraph>
+                                </TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell>
+                                    <Paragraph FontWeight="Bold">\t</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>制表符（Horizontal tab）</Paragraph>
+                                </TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell>
+                                    <Paragraph FontWeight="Bold">\v</Paragraph>
+                                </TableCell>
+                                <TableCell>
+                                    <Paragraph>垂直制表符（Vertical tab）</Paragraph>
+                                </TableCell>
+                            </TableRow>
+                        </TableRowGroup>
+                    </Table>
+
+                    <Paragraph Margin="0,8,0,0" FontWeight="Bold">
+                        示例：
+                    </Paragraph>
+                    <Paragraph Margin="0,2,0,0">
+                        发送一行文本并换行：
+                    </Paragraph>
+                    <Paragraph
+                        Margin="0,2,0,0"
+                        Background="#ECECEC"
+                        FontFamily="Consolas">
+                        Hello World!\r\n
+                    </Paragraph>
+
+                    <Paragraph
+                        Margin="0,16,0,8"
+                        FontSize="15"
+                        FontWeight="Bold">
+                        Unicode
+                    </Paragraph>
+                    <Paragraph Margin="0">
+                        使用 <Run FontWeight="Bold">\uXXXX</Run>
+                        发送 Unicode 字符。请在设置中选择合适编码（如 utf-8），
+                        <Run FontWeight="Bold">XXXX</Run> 替换为字符的十六进制码点。
+                    </Paragraph>
+
+                    <Paragraph Margin="0,8,0,0" FontWeight="Bold">
+                        示例：
+                    </Paragraph>
+                    <Paragraph Margin="0,2,0,0">
+                        发送希腊字母 Omega（Ω）：
+                    </Paragraph>
+                    <Paragraph
+                        Margin="0,2,0,0"
+                        Background="#ECECEC"
+                        FontFamily="Consolas">
+                        \u03A9
+                    </Paragraph>
+
+                    <Paragraph
+                        Margin="0,16,0,8"
+                        FontSize="15"
+                        FontWeight="Bold">
+                        二进制
+                    </Paragraph>
+                    <Paragraph Margin="0">
+                        使用 <Run FontWeight="Bold">\xXX</Run>
+                        插入二进制字节。该字节不受当前文本编码影响，
+                        <Run FontWeight="Bold">XX</Run> 替换为要插入的十六进制字节值。
+                    </Paragraph>
+
+                    <Paragraph Margin="0,8,0,0" FontWeight="Bold">
+                        示例：
+                    </Paragraph>
+                    <Paragraph Margin="0,2,0,0">
+                        发送一段文本并在末尾插入二进制数据：
+                    </Paragraph>
+                    <Paragraph
+                        Margin="0,2,0,0"
+                        Background="#ECECEC"
+                        FontFamily="Consolas">
+                        HEAD\xFE\x09
+                    </Paragraph>
+
+                    <Paragraph Margin="0,8,0,8">
+                        仅发送二进制数据时，建议选择 Hex 类型，按空格分隔输入十六进制字节。
+                    </Paragraph>
+                </Section>
+            </FlowDocument>
+        </FlowDocumentScrollViewer>
+    </Grid>
+</UserControl>
