@@ -75,8 +75,8 @@ namespace TcpUdpTool.Model
                     };
 
                     throw new InvalidOperationException(
-                        "Cannot send UDP packet using " + IpvToString(addr.AddressFamily) + 
-                        " when bound to an " + IpvToString(_udpClient.Client.AddressFamily) + " interface.");
+                        "无法使用 " + IpvToString(addr.AddressFamily) +
+                        " 发送 UDP 包，因为当前绑定的是 " + IpvToString(_udpClient.Client.AddressFamily) + " 接口。");
                 }
 
                 from = _udpClient.Client.LocalEndPoint as IPEndPoint;

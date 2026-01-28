@@ -82,7 +82,7 @@ namespace TcpUdpTool.ViewModel
 
                     if (!_autoSendIntervalMs.HasValue || _autoSendIntervalMs.Value < 1)
                     {
-                        AddError(nameof(AutoSendIntervalMs), "Interval must be greater than 0 ms.");
+                        AddError(nameof(AutoSendIntervalMs), "间隔必须大于 0 毫秒。");
                     }
                     else
                     {
@@ -107,7 +107,7 @@ namespace TcpUdpTool.ViewModel
                         
                     if(String.IsNullOrWhiteSpace(_ipAddress))
                     {
-                        AddError(nameof(IpAddress), "IP address cannot be empty.");
+                        AddError(nameof(IpAddress), "IP 地址不能为空。");
                     }
                     else
                     {
@@ -131,7 +131,7 @@ namespace TcpUdpTool.ViewModel
 
                     if(!NetworkUtils.IsValidPort(_port.HasValue ? _port.Value : -1, false))
                     {
-                        AddError(nameof(Port), "Port must be between 1 and 65535.");
+                        AddError(nameof(Port), "端口必须在 1 到 65535 之间。");
                     }
                     else
                     {
@@ -201,11 +201,11 @@ namespace TcpUdpTool.ViewModel
 
                     if(IsConnected)
                     {
-                        History.Header = "Connected to: < " + arg.RemoteEndPoint.ToString() + " >";
+                        History.Header = "已连接：< " + arg.RemoteEndPoint.ToString() + " >";
                     }
                     else
                     {
-                        History.Header = "Conversation";
+                        History.Header = "会话";
                         AutoSendEnabled = false;
                     }
                   
@@ -220,7 +220,7 @@ namespace TcpUdpTool.ViewModel
 
             IpAddress = "127.0.0.1";
             Port = 4001;
-            History.Header = "Conversation";
+            History.Header = "会话";
             AutoSendIntervalMs = 1000;
         }
 

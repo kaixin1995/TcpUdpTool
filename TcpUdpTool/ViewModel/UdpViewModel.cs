@@ -90,7 +90,7 @@ namespace TcpUdpTool.ViewModel
 
                     if(!NetworkUtils.IsValidPort(_listenPort.HasValue ? _listenPort.Value : -1, true))
                     {
-                        AddError(nameof(ListenPort), "Port must be between 0 and 65535.");
+                        AddError(nameof(ListenPort), "端口必须在 0 到 65535 之间。");
                     }
                     else
                     {
@@ -141,11 +141,11 @@ namespace TcpUdpTool.ViewModel
 
                     if (IsServerStarted)
                     {
-                        History.Header = "Listening on: < " + arg.ServerInfo.ToString() + " >";
+                        History.Header = "正在监听：< " + arg.ServerInfo.ToString() + " >";
                     }
                     else
                     {
-                        History.Header = "Conversation";
+                        History.Header = "会话";
                     }
                 };
 
@@ -156,7 +156,7 @@ namespace TcpUdpTool.ViewModel
                 };
 
             ListenPort = 0;
-            History.Header = "Conversation";
+            History.Header = "会话";
             Send.IpAddress = "localhost";
             Send.Port = 0;
 

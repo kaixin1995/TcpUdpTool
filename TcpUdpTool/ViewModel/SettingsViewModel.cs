@@ -183,7 +183,7 @@ namespace TcpUdpTool.ViewModel
 
         public override string ToString()
         {
-            if (_default) return "Default";
+            if (_default) return "默认";
             return _encoding.WebName;
         }
 

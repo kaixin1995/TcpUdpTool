@@ -27,11 +27,11 @@
 
     <TabControl Margin="10">
 
-        <TabItem Header="TCP Client">
+        <TabItem Header="TCP 客户端">
             <view:TcpClientView DataContext="{Binding TcpClientViewModel}" />
         </TabItem>
 
-        <TabItem Header="TCP Server">
+        <TabItem Header="TCP 服务端">
             <view:TcpServerView DataContext="{Binding TcpServerViewModel}" />
         </TabItem>
 
@@ -47,11 +47,11 @@
             <view:UdpSsmView DataContext="{Binding UdpSsmViewModel}" />
         </TabItem>
 
-        <TabItem Header="Settings">
+        <TabItem Header="设置">
             <view:SettingsView DataContext="{Binding SettingsViewModel}" />
         </TabItem>
 
-        <TabItem Header="Help">
+        <TabItem Header="帮助">
             <view:HelpView />
         </TabItem>
     </TabControl>

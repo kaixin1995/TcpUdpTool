@@ -12,7 +12,7 @@ namespace TcpUdpTool.Model.Util
 
         public static void ShowErrorDialog(string message)
         {
-            MessageBox.Show(message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(message, "错误", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
     }

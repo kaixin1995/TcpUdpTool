@@ -58,7 +58,7 @@
                     </Paragraph>
                     <Paragraph Margin="0,8,0,0">
                         <Run FontWeight="Bold">注意：</Run>
-                        <Run FontFamily="Consolas">IP Address</Run>
+                        <Run FontFamily="Consolas">IP 地址</Run>
                         可填写 IP 地址或域名（自动解析为 IP）。
                     </Paragraph>
                     <Paragraph Margin="0,8,0,0">
@@ -81,7 +81,7 @@
                     </Paragraph>
                     <Paragraph Margin="0,8,0,0">
                         <Run FontWeight="Bold">注意：</Run>
-                        <Run FontFamily="Consolas">Port</Run>
+                        <Run FontFamily="Consolas">端口</Run>
                         设为 0 时会自动分配动态端口。
                     </Paragraph>
                 </Section>
@@ -98,7 +98,7 @@
                     </Paragraph>
                     <Paragraph Margin="0,8,0,0">
                         <Run FontWeight="Bold">注意：</Run>
-                        在目标 <Run FontFamily="Consolas">IP Address</Run>
+                        在目标 <Run FontFamily="Consolas">IP 地址</Run>
                         中填写广播地址即可发送广播包。
                     </Paragraph>
                 </Section>
@@ -112,7 +112,7 @@
                     </Paragraph>
                     <Paragraph Margin="0">
                         参与任意源组播通信。默认仅在系统默认网卡接收，可在网卡列表选择监听接口，
-                        选择 <Run FontFamily="Consolas">All</Run> 可同时监听所有接口。
+                        选择 <Run FontFamily="Consolas">全部</Run> 可同时监听所有接口。
                         发送组播包时同理。
                     </Paragraph>
                     <Paragraph Margin="0,8,0,0">
@@ -130,7 +130,7 @@
                     </Paragraph>
                     <Paragraph Margin="0">
                         接收指定源地址的组播数据。默认仅在系统默认网卡接收，可在网卡列表选择监听接口，
-                        选择 <Run FontFamily="Consolas">All</Run> 可同时监听所有接口。
+                        选择 <Run FontFamily="Consolas">全部</Run> 可同时监听所有接口。
                         特定源组播会过滤数据，仅接收指定源 IP 的数据。
                     </Paragraph>
                 </Section>
@@ -288,7 +288,7 @@
                     </Paragraph>
 
                     <Paragraph Margin="0,8,0,8">
-                        仅发送二进制数据时，建议选择 Hex 类型，按空格分隔输入十六进制字节。
+                        仅发送二进制数据时，建议选择 十六进制 类型，按空格分隔输入十六进制字节。
                     </Paragraph>
                 </Section>
             </FlowDocument>

@@ -99,7 +99,7 @@ namespace TcpUdpTool.ViewModel
 
                     if(!NetworkUtils.IsValidPort(_port.HasValue ? _port.Value : -1, true))
                     {
-                        AddError(nameof(Port), "Port must be between 0 and 65535.");
+                        AddError(nameof(Port), "端口必须在 0 到 65535 之间。");
                     }
                     else
                     {
@@ -154,11 +154,11 @@ namespace TcpUdpTool.ViewModel
                     if(arg.Status == TcpServerStatusEventArgs.EServerStatus.Started)
                     {
                         IsStarted = true;
-                        History.Header = "Listening on: < " + arg.ServerInfo.ToString() + " >";
+                        History.Header = "正在监听：< " + arg.ServerInfo.ToString() + " >";
                     }
                     else if(arg.Status == TcpServerStatusEventArgs.EServerStatus.Stopped)
                     {
-                        History.Header = "Conversation";
+                        History.Header = "会话";
                         IsStarted = false;
                         IsClientConnected = false;
                     }
@@ -169,12 +169,12 @@ namespace TcpUdpTool.ViewModel
 
                         if (IsClientConnected)
 						{
-                            History.Header = "Connected client(s): < " + (_tcpServer.NumConnectedClients > 1
+                            History.Header = "已连接客户端：< " + (_tcpServer.NumConnectedClients > 1
                             ? _tcpServer.NumConnectedClients.ToString() : arg.ClientInfo.ToString()) + " >";
                         }
 						else
 						{
-                            History.Header = "Listening on: < " + arg.ServerInfo.ToString() + " >";
+                            History.Header = "正在监听：< " + arg.ServerInfo.ToString() + " >";
                         }
                     }             
                 };
@@ -186,7 +186,7 @@ namespace TcpUdpTool.ViewModel
                 };
 
             Port = 0;
-            History.Header = "Conversation";
+            History.Header = "会话";
 
             RebuildInterfaceList();
 
@@ -222,7 +222,7 @@ namespace TcpUdpTool.ViewModel
                 String message = ex.Message;
                 if(ex.ErrorCode == 10013)
                 {
-                    message = "Port " + Port + " is already in use, unable to start server.";
+                    message = "端口 " + Port + " 已被占用，无法启动服务。";
                 }
 
                 DialogUtils.ShowErrorDialog(message);

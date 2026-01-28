@@ -50,8 +50,8 @@ namespace TcpUdpTool.Model.Parser
                     else if (c == 'u')
                         escapeUnicode = true;
                     else
-                        throw new FormatException("Incorrect escape sequence found, \\"
-                            + c + " is not allowed.");
+                        throw new FormatException("发现错误的转义序列，\\"
+                            + c + " 不被允许。");
 
                     escape = false;
                 }
@@ -71,8 +71,8 @@ namespace TcpUdpTool.Model.Parser
                         }
                         catch (FormatException)
                         {
-                            throw new FormatException("Incorrect escape sequence found, \\x"
-                                + hexStr + " is not a 8-bit hexadecimal number.");
+                            throw new FormatException("发现错误的转义序列，\\x"
+                                + hexStr + " 不是 8 位十六进制数。");
                         }
 
                         escapeHex = false;
@@ -91,8 +91,8 @@ namespace TcpUdpTool.Model.Parser
                         }
                         catch (FormatException)
                         {
-                            throw new FormatException("Incorrect escape sequence found, \\u"
-                               + hexStr + " is not a 16-bit hexadecimal unicode character code.");
+                            throw new FormatException("发现错误的转义序列，\\u"
+                               + hexStr + " 不是 16 位十六进制 Unicode 码点。");
                         }
 
                         escapeUnicode = false;

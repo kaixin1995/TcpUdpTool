@@ -34,7 +34,7 @@ namespace TcpUdpTool.ViewModel
 
                     if (String.IsNullOrWhiteSpace(_ipAddress))
                     {
-                        AddError(nameof(IpAddress), "IP address cannot be empty.");
+                        AddError(nameof(IpAddress), "IP 地址不能为空。");
                     }
                     else
                     {
@@ -58,7 +58,7 @@ namespace TcpUdpTool.ViewModel
 
                     if (!NetworkUtils.IsValidPort(_port.HasValue ? _port.Value : -1, false))
                     {
-                        AddError(nameof(Port), "Port must be between 1 and 65535.");
+                        AddError(nameof(Port), "端口必须在 1 到 65535 之间。");
                     }
                     else
                     {
@@ -97,12 +97,12 @@ namespace TcpUdpTool.ViewModel
                     {
                         if (String.IsNullOrWhiteSpace(_multicastGroup))
                         {
-                            AddError(nameof(MulticastGroup), "Multicast address cannot be empty.");
+                            AddError(nameof(MulticastGroup), "组播地址不能为空。");
                         }
                         else
                         {
                             AddError(nameof(MulticastGroup),
-                                String.Format("\"{0}\" is not a valid multicast address.", _multicastGroup));
+                                String.Format("“{0}”不是有效的组播地址。", _multicastGroup));
                         }
                     }
 
@@ -123,7 +123,7 @@ namespace TcpUdpTool.ViewModel
 
                     if (_multicastTtl < 1 || _multicastTtl > 255)
                     {
-                        AddError(nameof(MulticastTtl), "TTL must be between 1 and 255.");
+                        AddError(nameof(MulticastTtl), "TTL 必须在 1 到 255 之间。");
                     }
                     else
                     {
@@ -301,13 +301,13 @@ namespace TcpUdpTool.ViewModel
 
                 if(!File.Exists(filePath))
                 {
-                    DialogUtils.ShowErrorDialog("The file does not exist.");
+                    DialogUtils.ShowErrorDialog("文件不存在。");
                     return;
                 }
 
                 if(new FileInfo(filePath).Length > 4096)
                 {
-                    DialogUtils.ShowErrorDialog("The file is to large to send, maximum size is 16 KB.");
+                    DialogUtils.ShowErrorDialog("文件过大，最大允许 16 KB。");
                     return;
                 }
 
@@ -318,7 +318,7 @@ namespace TcpUdpTool.ViewModel
                 }
                 catch(Exception ex)
                 {
-                    DialogUtils.ShowErrorDialog("Error while reading file. " + ex.Message);
+                    DialogUtils.ShowErrorDialog("读取文件时出错。 " + ex.Message);
                     return;
                 }
             }

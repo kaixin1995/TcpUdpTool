@@ -24,7 +24,7 @@ namespace TcpUdpTool.ViewModel.Base
         {
             if (_batchOperationCount == 0)
             {
-                throw new InvalidOperationException("EndBatch() called without a matching call to BeginBatch().");
+                throw new InvalidOperationException("EndBatch() 调用前未匹配 BeginBatch()。");
             }
 
             _batchOperationCount--;

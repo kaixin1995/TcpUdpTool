@@ -293,7 +293,7 @@ namespace TcpUdpTool.ViewModel
             string data = GetSelectedItemsAsString();
 
             var dialog = new SaveFileDialog();
-            dialog.Filter = "Text file (*.txt)|*.txt";
+            dialog.Filter = "文本文件 (*.txt)|*.txt";
             
             if(dialog.ShowDialog().GetValueOrDefault())
             {
@@ -303,7 +303,7 @@ namespace TcpUdpTool.ViewModel
                 }
                 catch(Exception ex)
                 {
-                    DialogUtils.ShowErrorDialog("Failed to save file. " + ex.Message);
+                    DialogUtils.ShowErrorDialog("保存文件失败。 " + ex.Message);
                 }
             }
         }
@@ -325,7 +325,7 @@ namespace TcpUdpTool.ViewModel
                         sb.Append(item.Source);
                     }
 
-                    sb.Append(item.IsReceived ? "R:" : "S:");
+                    sb.Append(item.IsReceived ? "收:" : "发:");
                     sb.AppendLine();
                     sb.AppendLine(item.Content.Replace("\r\n", " "));
                 }

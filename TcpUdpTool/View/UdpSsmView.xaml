@@ -38,7 +38,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <GroupBox Header="Join" Margin="10">
+        <GroupBox Header="加入组播" Margin="10">
 
             <Grid Margin="10 10 10 0">
                 <Grid.ColumnDefinitions>
@@ -57,7 +57,7 @@
                 <Label 
                     Grid.Row="0"
                     Grid.Column="0"
-                    Content="Group (IP):"
+                    Content="组播组(IP)："
                     Padding="0"
                     Margin="0 0 10 0"/>
 
@@ -73,7 +73,7 @@
                 <Label
                     Grid.Column="0"
                     Grid.Row="1"
-                    Content="Source(IP):"
+                    Content="源地址(IP)："
                     Padding="0"
                     Margin="0 10 10 0"
                     VerticalAlignment="Center" />
@@ -91,7 +91,7 @@
                 <Label 
                     Grid.Row="1"
                     Grid.Column="2"
-                    Content="Port:"
+                    Content="端口："
                     Padding="0"                      
                     Margin="10 10 10 0" />
 
@@ -108,7 +108,7 @@
                 <Label 
                     Grid.Column="0"
                     Grid.Row="2"
-                    Content="Interface:"
+                    Content="接口："
                     Padding="0" 
                     Margin="0 0 10 0"
                     VerticalAlignment="Center"/>
@@ -142,10 +142,10 @@
 
                     <Button.Style>
                         <Style TargetType="Button">
-                            <Setter Property="Content" Value="Join" />
+                            <Setter Property="Content" Value="加入" />
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding IsGroupJoined}" Value="True">
-                                    <Setter Property="Content" Value="Leave" />
+                                    <Setter Property="Content" Value="离开" />
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>

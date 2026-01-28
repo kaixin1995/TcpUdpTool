@@ -22,7 +22,7 @@ namespace TcpUdpTool.Model.Parser
                 }
                 catch(FormatException)
                 {
-                    throw new FormatException("Incorrect sequence, " + parts[i] + " is not a 8-bit hexadecimal number.");
+                    throw new FormatException("序列错误，" + parts[i] + " 不是 8 位十六进制数。");
                 }               
             }
 

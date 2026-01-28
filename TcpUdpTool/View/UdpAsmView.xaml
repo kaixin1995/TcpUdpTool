@@ -38,7 +38,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <GroupBox Header="Join" Margin="10">
+        <GroupBox Header="加入组播" Margin="10">
 
             <Grid Margin="10 10 10 0">
                 <Grid.ColumnDefinitions>
@@ -56,7 +56,7 @@
                 <Label 
                     Grid.Row="0"
                     Grid.Column="0"
-                    Content="Group (IP):"
+                    Content="组播组(IP)："
                     Padding="0"
                     Margin="0 0 10 0"/>
 
@@ -72,7 +72,7 @@
                 <Label 
                     Grid.Row="0"
                     Grid.Column="2"
-                    Content="Port:"
+                    Content="端口："
                     Padding="0"                      
                     Margin="10 0 10 0" />
 
@@ -89,7 +89,7 @@
                 <Label 
                     Grid.Column="0"
                     Grid.Row="1"
-                    Content="Interface:"
+                    Content="接口："
                     Padding="0" 
                     Margin="0 0 10 0"
                     VerticalAlignment="Center"/>
@@ -123,10 +123,10 @@
 
                     <Button.Style>
                         <Style TargetType="Button">
-                            <Setter Property="Content" Value="Join" />
+                            <Setter Property="Content" Value="加入" />
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding IsGroupJoined}" Value="True">
-                                    <Setter Property="Content" Value="Leave" />
+                                    <Setter Property="Content" Value="离开" />
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>
@@ -143,7 +143,7 @@
 
 
         <GroupBox 
-            Header="Send"
+            Header="发送"
             Grid.Column="0"
             Grid.Row="2"
             Margin="10 0 10 10"
@@ -167,7 +167,7 @@
                 <Label 
                     Grid.Column="0"
                     Grid.Row="0"
-                    Content="Group (IP):"
+                    Content="组播组(IP)："
                     Margin="10 0 10 0"
                     Padding="0"
                     VerticalAlignment="Center" />
@@ -185,7 +185,7 @@
                 <Label 
                     Grid.Column="2"
                     Grid.Row="0"
-                    Content="Port:"
+                    Content="端口："
                     Margin="10 0 0 0"
                     Padding="0"
                     VerticalAlignment="Center" />
@@ -205,7 +205,7 @@
                     Grid.Row="1"
                     Height="21"
                     VerticalContentAlignment="Center"
-                    Content="Interface:"
+                    Content="接口："
                     Padding="0"
                     Margin="10 0 0 8"/>
 
@@ -214,7 +214,7 @@
                     Grid.Column="1"
                     Grid.Row="1"
                     Height="21"
-                    Text="Default"
+                    Text="默认"
                     Margin="0"
                     ItemsSource="{Binding Source={StaticResource SortedSendInterfaces}}"
                     SelectedItem="{Binding Send.SelectedInterface}">
@@ -230,7 +230,7 @@
                     Grid.Column="2"
                     Grid.Row="1"
                     Height="21"
-                    Content="TTL:"
+                    Content="TTL："
                     Margin="10 0 0 0"
                     Padding="0"
                     VerticalAlignment="Center"/>
@@ -254,10 +254,10 @@
 
                     <TextBlock.Style>
                         <Style TargetType="{x:Type TextBlock}">
-                            <Setter Property="Text" Value="Message:" />
+                            <Setter Property="Text" Value="消息：" />
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding Send.FileSelected}" Value="true">
-                                    <Setter Property="Text" Value="File:" />
+                                    <Setter Property="Text" Value="文件：" />
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>
@@ -289,7 +289,7 @@
                         Height="21"
                         Width="80"
                         Margin="10 10 0 10"
-                        Content="Browse"
+                        Content="选择文件"
                         VerticalContentAlignment="Center"
                         Command="{Binding Send.BrowseCommand}">
 
@@ -313,7 +313,7 @@
                     Height="21"
                     Width="80"
                     Margin="10"
-                    Content="Send"
+                    Content="发送"
                     Command="{Binding Send.SendCommand}" />
 
                 <Label 
@@ -323,7 +323,7 @@
                     Padding="0"
                     VerticalAlignment="Center"
                     Margin="10 0 10 0"
-                    Content="Type:"/>
+                    Content="类型："/>
 
                 <StackPanel 
                     Grid.Column="1"
@@ -333,19 +333,19 @@
                     VerticalAlignment="Center">
 
                     <RadioButton 
-                        Content="Text"
+                        Content="文本"
                         Margin="0 0 10 0" 
                         Command="{Binding Send.TypeChangedCommand}"
                         IsChecked="{Binding Send.PlainTextSelected, Mode=TwoWay}" />
 
                     <RadioButton 
-                        Content="Hex"
+                        Content="十六进制"
                         Margin="0 0 10 0"
                         Command="{Binding Send.TypeChangedCommand}"
                         IsChecked="{Binding Send.HexSelected, Mode=TwoWay}" />
 
                     <RadioButton 
-                        Content="File"
+                        Content="文件"
                         Margin="0 0 10 0"
                         Command="{Binding Send.TypeChangedCommand}"
                         IsChecked="{Binding Send.FileSelected, Mode=TwoWay}" />

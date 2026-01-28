@@ -87,12 +87,12 @@ namespace TcpUdpTool.ViewModel
                     {
                         if(String.IsNullOrWhiteSpace(_multicastGroup))
                         {
-                            AddError(nameof(MulticastGroup), "Multicast address cannot be empty.");
+                            AddError(nameof(MulticastGroup), "组播地址不能为空。");
                         }
                         else
                         {
                             AddError(nameof(MulticastGroup), 
-                                String.Format("\"{0}\" is not a valid multicast address.", _multicastGroup));
+                                String.Format("“{0}”不是有效的组播地址。", _multicastGroup));
                         }                      
                     }
 
@@ -113,7 +113,7 @@ namespace TcpUdpTool.ViewModel
 
                     if(!NetworkUtils.IsValidPort(_multicastPort.HasValue ? _multicastPort.Value : -1, false))
                     {
-                        AddError(nameof(MulticastPort), "Port must be between 1 and 65535.");
+                        AddError(nameof(MulticastPort), "端口必须在 1 到 65535 之间。");
                     }
                     else
                     {
@@ -184,11 +184,11 @@ namespace TcpUdpTool.ViewModel
 
                     if(arg.Joined)
                     {
-                        _historyViewModel.Header = "Joined: < " + arg.MulticastGroup + " >";
+                        _historyViewModel.Header = "已加入：< " + arg.MulticastGroup + " >";
                     }
                     else
                     {
-                        _historyViewModel.Header = "Conversation";
+                        _historyViewModel.Header = "会话";
                     }
                 };
 
@@ -198,7 +198,7 @@ namespace TcpUdpTool.ViewModel
             Send.MulticastGroup = "";
             Send.Port = 0;
             Send.MulticastTtl = 16;
-            _historyViewModel.Header = "Conversation";
+            _historyViewModel.Header = "会话";
 
             RebuildInterfaceList();
 

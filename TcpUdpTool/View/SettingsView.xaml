@@ -15,7 +15,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <GroupBox Header="General" 
+        <GroupBox Header="通用" 
                   Grid.ColumnSpan="3"
                   Grid.Row="0"
                   Padding="5">
@@ -35,7 +35,7 @@
                               
                 <Label Grid.Column="0"
                        Grid.Row="0"
-                       Content="Encoding:" />
+                       Content="编码：" />
 
                 <ComboBox Grid.Column="1"
                           Grid.Row="0"
@@ -47,7 +47,7 @@
 
                 <Label Grid.Column="0"
                        Grid.Row="1"
-                       Content="IPv6 Support:" />
+                       Content="IPv6 支持：" />
 
                 <StackPanel Grid.Column="1"
                             Grid.Row="1"
@@ -55,9 +55,9 @@
                             VerticalAlignment="Center"
                             Margin="0 2 0 0">
 
-                    <RadioButton Content="Enable" 
+                    <RadioButton Content="启用" 
                                  IsChecked="{Binding IPv6SupportEnabled, Mode=TwoWay}"/>
-                    <RadioButton Content="Disable"
+                    <RadioButton Content="禁用"
                                  Margin="10 0 0 0"
                                  IsChecked="{Binding IPv6SupportDisabled, Mode=OneWay}"/>
 
@@ -66,7 +66,7 @@
             </Grid>
         </GroupBox>
 
-        <GroupBox Header="History"
+        <GroupBox Header="历史记录"
                   Grid.Column="0"
                   Grid.Row="1"
                   Margin="0 10 0 0"
@@ -86,7 +86,7 @@
 
                 <Label Grid.Column="0"
                        Grid.Row="0"
-                       Content="Show:" />
+                       Content="显示：" />
 
                 <StackPanel Grid.Column="1"
                             Grid.Row="0"
@@ -99,12 +99,12 @@
                          Validation.ErrorTemplate="{x:Null}"
                          Text="{Binding HistoryEntries, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                    <Label Content="entries" />
+                    <Label Content="条" />
                 </StackPanel>
                        
                 <Label Grid.Column="0"
                        Grid.Row="1"
-                       Content="Scroll to End:" />
+                       Content="滚动到底：" />
 
                 <StackPanel Grid.Column="1"
                             Grid.Row="1"
@@ -112,16 +112,16 @@
                             VerticalAlignment="Center"
                             Margin="0 2 0 0">
 
-                    <RadioButton Content="Yes" 
+                    <RadioButton Content="是" 
                                  IsChecked="{Binding ScrollToEndEnabled, Mode=TwoWay}"/>
-                    <RadioButton Content="No"
+                    <RadioButton Content="否"
                                  Margin="10 0 0 0"
                                  IsChecked="{Binding ScrollToEndDisabled, Mode=OneWay}"/>
                 </StackPanel>
 
                 <Label Grid.Column="0"
                        Grid.Row="2"
-                       Content="Info:"
+                       Content="信息："
                        Margin="0"/>
 
                 <StackPanel Grid.Column="1"
@@ -131,11 +131,11 @@
                             VerticalAlignment="Center"
                             Margin="0 6 0 0">
 
-                    <CheckBox Content="Timestamp"
+                    <CheckBox Content="时间戳"
                               VerticalContentAlignment="Center"
                               IsChecked="{Binding HistoryInfoTimestamp}" />
 
-                    <CheckBox Content="IP Address"
+                    <CheckBox Content="IP 地址"
                               VerticalContentAlignment="Center"
                               Margin="0 4 0 0"
                               IsChecked="{Binding HistoryInfoIpAddress}" />

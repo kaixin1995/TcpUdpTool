@@ -34,7 +34,7 @@ namespace TcpUdpTool.ViewModel.Item
 
         public string GroupName
         {
-            get { return Nic == null ? "Network Interface" : Nic.Name; }
+            get { return Nic == null ? "网络接口" : Nic.Name; }
         }
 
 
@@ -47,7 +47,7 @@ namespace TcpUdpTool.ViewModel.Item
             if(Address == null && (Type == EInterfaceType.Any || Type == EInterfaceType.Specific))
             {
                 throw new ArgumentNullException(
-                    "address cannot be null for types: [Specific, Any]");
+                    "类型为 [Specific, Any] 时地址不能为空。");
             }
         }
 
@@ -55,21 +55,21 @@ namespace TcpUdpTool.ViewModel.Item
         {
             if (Type == EInterfaceType.Default)
             {
-                return "Default";
+                return "默认";
             }
             else if (Type == EInterfaceType.All)
             {
-                return "All";
+                return "全部";
             }
             else if (Type == EInterfaceType.Any)
             {
                 if (Address.AddressFamily == AddressFamily.InterNetwork)
                 {
-                    return "Any IPv4 (0.0.0.0)";
+                    return "任意 IPv4 (0.0.0.0)";
                 }
                 else
                 {
-                    return "Any IPv6 (::)";
+                    return "任意 IPv6 (::)";
                 }
             }
             else
